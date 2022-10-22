@@ -5,8 +5,9 @@ using namespace std;
 
 
 int main (){
-       
-        cout<<"hellow  "<<endl;
-        cout<<"BYE BYE!"<<endl;
+       cout<<"hellow to our program" <<endl;
+       cout<<"This is me" <<endl;
+        //fixed by me
+        
        return 0;
 }
