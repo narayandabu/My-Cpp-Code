@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main()
+{   
+    int N;
+    printf("Enter the Size of String:-\n");
+    scanf("%d",&N);
+    getchar();
+    char Input[N];
+    char Org[N];
+    printf("Enter The sentence :-\n");
+    gets(Input);
+    strcpy(Org,Input);
+    strrev(Input);
+    int Num=strcmp(Input,Org);
+    if (Num==0)
+    {
+       printf("True\n");
+    }
+    else if (Num==1 || Num== -1)
+    {
+        printf("False\n");
+
+    }
+    
+    
+    return 0;
+}
