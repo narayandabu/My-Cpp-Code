@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-
+//program for conversion of 0's to 5 or anyother number with some modification.
 int main()
 {
     int T,input;
