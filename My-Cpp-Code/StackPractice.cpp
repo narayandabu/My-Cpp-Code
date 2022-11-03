@@ -136,7 +136,6 @@ public:
     }
     int sosused(){ //returns the size of the stack used 
         return arrow+1;
-    }
-
+    }   
 };
 
