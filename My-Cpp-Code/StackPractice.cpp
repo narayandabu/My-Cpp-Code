@@ -126,7 +126,14 @@ public:
         return 0;
     }
     Any stacktop(){ // returns the top value of the stack.
-        return arr[arrow];
+        if (arrow>=0)
+        {
+            return arr[arrow];   
+        }
+        else
+        {
+            return -1;
+        }
     }
     Any stackbottom(){ // returns the bottom value of the stack.
         return arr[0];

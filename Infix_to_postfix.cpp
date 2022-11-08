@@ -21,62 +21,44 @@ int isprecedence(char data)
 }
 
 int main()
-{
-
+{ 
        string infix;
-
-       cin >> infix;
-       stack<char> s(30);
-       char postfix[infix.length()-1];
-       int i = 0;
-       int j = 0;
-       int count=0;
-       s.push('n');
-       for (int k = 0; k != infix.length(); k++)
-       {
-              if(isprecedence(infix.at(i)) > 0 and isprecedence(s.stacktop()) < isprecedence(infix.at(i)))
-              {
-                     cout<<"pushed"<<endl;
-                     s.push(infix.at(i));
-                     i++;
-                     count++;
-                     continue;
+       cin>>infix;
+       string postfix;
+       stack<char> operatore(10);
+       int j=0;
+       for(int i = 0; i < infix.length();i++){
+              int check=isprecedence(infix.at(i));
+              if(check==0){
+                postfix=postfix+infix.at(i);
+                j++;
               }
-              else if (isprecedence(infix.at(i))==0)
-              {
-                     cout<<"normal"<<endl;
-                     postfix[j] = infix.at(i);
-                     j++;
-                     i++;
-                     continue;                    
+              else if(check==1 and operatore.stacktop() == -1){
+                    operatore.push(infix.at(i));
+                    j++;
               }
-              if(isprecedence(s.stacktop()) > isprecedence(infix.at(i)))
-              {
-                     cout<<"poped"<<endl;
-                     postfix[j]=s.pop();
-                     j++;
-                     count--;
-                     continue;
-              }   
+              else if(check==(1 or 2) and operatore.stacktop() > -1 ){
+                    postfix=postfix+operatore.pop();
+                    operatore.push(infix.at(i));
+                    j++;
+              }
+              else if(check==2 and isprecedence(operatore.stacktop())<=1){
+                    operatore.push(infix.at(i));
+                    j++;  
+              }
+              else{
+                     postfix=postfix+operatore.pop();
+              }
+                     
        }
-       if (count>0)
-       {
-              cout<<"poped"<<endl<<count<<endl;
-              while (count!=0)
-              {
-                     postfix[j]=s.pop();  
-                     j++;
-                     count--;
-              }
-              
-              
-              
+       if(operatore.stacktop() > -1){
+              for (int i = 0; i <= operatore.sosused(); i++){
+                     postfix=postfix+operatore.pop();
+                }
+                
        }
+       cout<<postfix;
        
-       for (int k = 0; k < infix.length(); k++)
-       {
-              cout<<postfix[k];
-       }
        
 
        return 0;
