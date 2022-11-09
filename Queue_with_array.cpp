@@ -4,7 +4,6 @@
 using namespace std;
 
 // Queue with arrays.
-
 template <class Any>
 class Queue{
    protected:
@@ -87,15 +86,13 @@ class CQueue{
     int size;
     int fend=-1;
     int bend=-1;
-    int count=0;
     Any * arr;
     public:
-    CQueue(int size){ 
+    CQueue(int size){ // Default Constructor for CQueue 
         this->size=size;
         arr = new Any[size]; 
     }
-    int CQis_full(){
-        // cout<<"fend "<<fend<<" bend "<<bend<<endl;
+    int CQis_full(){ // Function to check if the CQueue is full or not
         if(fend==0 and ((bend+1)%(size))==0)
         {
             return 1;
@@ -105,7 +102,7 @@ class CQueue{
             return 0;
         } 
     }
-    int CQis_empty(){
+    int CQis_empty(){ // Function to check if the CQueue is empty or not
         if(fend==-1 and bend==-1)
         {
             return 1;
@@ -115,7 +112,7 @@ class CQueue{
             return 0;
         }
     }
-    void CQinsert(Any data){ // Function to insert an Element in the Queue 
+    void CQinsert(Any data){ // Function to insert an Element in the CQueue 
        if(((bend+1)%(size))==fend){
         cout<<"Cannot Insert if the Queue is already filled."<<endl;
        }
@@ -126,16 +123,15 @@ class CQueue{
         {
             fend=0;
         }
-        count++;
        }      
     }
-    Any CQdelete(){ 
+    Any CQdelete(){ // Function to delete an Element in the CQueue 
         if(fend==-1 and bend==-1)
         {
+            Any a;
             cout<<"cannot delete if the Queue is already empty"<<endl;
-            return -256;
+            return a;
         }
-       
         else
         {
             Any removed=arr[fend];
@@ -145,11 +141,10 @@ class CQueue{
                 fend=-1;
                 bend=-1;
             }
-            count--;
             return removed;
         }
     }
-    void CQtraverse(){ 
+    void CQtraverse(){ // Function to traverse the CQueue
         if (CQis_empty()==1)
         {
             cout<<"Cannot traverse an empty Queue."<<endl;
@@ -162,6 +157,17 @@ class CQueue{
             }
         }
     }
+    void CQreset(){ // Function to Reset the entire CQueue
+        fend = -1;
+        bend = -1;
+        for (int i = 0; i < size; i++)
+        {
+            arr[i]=0;
+        }
+        
+    }
+
+
 
 };
 
@@ -174,45 +180,3 @@ class CQueue{
 
 
 
-int main()
-{
-    CQueue<int> Q(6);
-   
-    Q.CQinsert(10);
-    Q.CQinsert(101);
-    Q.CQinsert(110);
-    Q.CQinsert(1900);
-    Q.CQinsert(1155);
-    Q.CQinsert(120);
-    Q.CQdelete();
-    Q.CQdelete();
-    Q.CQdelete();
-    Q.CQdelete();
-    Q.CQdelete();
-    Q.CQdelete();
-    Q.CQinsert(120);
-    Q.CQinsert(120);
-    Q.CQinsert(120);
-    Q.CQinsert(120);
-    Q.CQinsert(120);
-    Q.CQinsert(120);
-
-
-
-
- 
-
-
-
-    
-
-
-    Q.CQtraverse();
-    cout<<"is_full "<<Q.CQis_full()<<endl;
-    cout<<"is_empty "<<Q.CQis_empty()<<endl;
-   
-    
-
-
-    return 0;
-}
