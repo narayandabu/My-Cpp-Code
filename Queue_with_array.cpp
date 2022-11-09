@@ -1,5 +1,6 @@
 #include <iostream>
 
+
 using namespace std;
 
 // Queue with arrays.
@@ -86,13 +87,14 @@ class CQueue{
     int size;
     int fend=-1;
     int bend=-1;
+    int count=0;
     Any * arr;
     public:
     CQueue(int size){ 
         this->size=size;
         arr = new Any[size]; 
     }
-    int is_full(){
+    int CQis_full(){
         // cout<<"fend "<<fend<<" bend "<<bend<<endl;
         if(fend==0 and ((bend+1)%(size))==0)
         {
@@ -103,7 +105,7 @@ class CQueue{
             return 0;
         } 
     }
-    int is_empty(){
+    int CQis_empty(){
         if(fend==-1 and bend==-1)
         {
             return 1;
@@ -124,14 +126,16 @@ class CQueue{
         {
             fend=0;
         }
+        count++;
        }      
     }
-    Any CQdelete(){
-        if(fend==-1 and bend ==-1)
+    Any CQdelete(){ 
+        if(fend==-1 and bend==-1)
         {
             cout<<"cannot delete if the Queue is already empty"<<endl;
             return -256;
         }
+       
         else
         {
             Any removed=arr[fend];
@@ -141,19 +145,18 @@ class CQueue{
                 fend=-1;
                 bend=-1;
             }
+            count--;
             return removed;
         }
     }
-    void traverse(){
-        if (is_empty()==1)
+    void CQtraverse(){ 
+        if (CQis_empty()==1)
         {
             cout<<"Cannot traverse an empty Queue."<<endl;
         }
         else
         {
-            for(int i = fend; i <= size; i++)
-            {
-                cout<<"fend "<<fend<<" ";
+            for(int i = fend; i <= bend; i++){
                 cout<<(i+1)<<" ";
                 cout<<(arr[i])<<endl;
             }
@@ -166,17 +169,48 @@ class CQueue{
 
 
 
+
+
+
+
+
 int main()
 {
     CQueue<int> Q(6);
    
+    Q.CQinsert(10);
+    Q.CQinsert(101);
+    Q.CQinsert(110);
+    Q.CQinsert(1900);
+    Q.CQinsert(1155);
+    Q.CQinsert(120);
+    Q.CQdelete();
+    Q.CQdelete();
+    Q.CQdelete();
+    Q.CQdelete();
+    Q.CQdelete();
+    Q.CQdelete();
+    Q.CQinsert(120);
+    Q.CQinsert(120);
+    Q.CQinsert(120);
+    Q.CQinsert(120);
+    Q.CQinsert(120);
+    Q.CQinsert(120);
 
-    // Q.CQdelete();
-     Q.traverse();
-    cout<<"is_full "<<Q.is_full()<<endl;
-    cout<<"is_empty "<<Q.is_empty()<<endl;
-   
+
+
+
  
+
+
+
+    
+
+
+    Q.CQtraverse();
+    cout<<"is_full "<<Q.CQis_full()<<endl;
+    cout<<"is_empty "<<Q.CQis_empty()<<endl;
+   
     
 
 

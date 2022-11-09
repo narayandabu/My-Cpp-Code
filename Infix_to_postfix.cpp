@@ -54,7 +54,7 @@ int main()
        if(operatore.stacktop() > -1){
               for (int i = 0; i <= operatore.sosused(); i++){
                      postfix=postfix+operatore.pop();
-                }
+              }
                 
        }
        cout<<postfix;
