@@ -166,7 +166,9 @@ class CQueue{
         }
         
     }
-
+    void freeCQ(){ // Frees the allocated memory given to the CQ and ready for use again .   
+        free(arr);
+    }
 
 
 };
