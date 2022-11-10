@@ -12,6 +12,7 @@ void display_arr(int *array,int size,string type_of_sort){ // To Display the arr
     cout<<endl;
 }
 int * bubble_sort(int * array,int size){ // Bubble sort:-Time complexity O(n^2)
+    // worst time complexity:- O(n^2) and best time complexity:- O(n)
     int temp;
     int count=0;
     for (int i = 0; i < size-1; i++){
@@ -34,6 +35,7 @@ int * bubble_sort(int * array,int size){ // Bubble sort:-Time complexity O(n^2)
     return array;
 }
 int * insertion_sort(int * array, int size){ // Insertion sort:- Time Complexity O(n^2)
+        // worst time complexity:- O(n^2) and best time complexity:- O(n)
         int index,j;
         for(int i = 1; i <= size-1; i++){
             index=array[i];
@@ -48,7 +50,8 @@ int * insertion_sort(int * array, int size){ // Insertion sort:- Time Complexity
         
 
 }
-int * selection_sort(int * array , int size){ // selection sort:- Time Complexity O()
+int * selection_sort(int * array , int size){ // selection sort:- Time Complexity O(n^2)
+        // worst time complexity:- O(n^2) and best time complexity:- O(n^2)
         int temp=0;
         for (int i = 0; i <= size-1; i++){
             for (int j = i+1; j <= size-1; j++){
@@ -74,6 +77,6 @@ int main (){
     int array_sorted[sizeof(array)/sizeof(array[0])];
     // display_arr(bubble_sort(array,size),size,"Bubble sort"); 
     // display_arr(insertion_sort(array,size),size,"Insertion sort");
-    display_arr(selection_sort(array,size),size,"selection sort");
+    // display_arr(selection_sort(array,size),size,"selection sort");
     return 0;
 }
