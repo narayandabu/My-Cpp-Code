@@ -3,14 +3,15 @@
 using namespace std;
 
 
-void display_arr(int *array,int size){ // To Display the arrays 
+void display_arr(int *array,int size,string type_of_sort){ // To Display the arrays and its type
+    cout<<type_of_sort<<" is used:-"<<endl;
     for (int i = 0; i < size; i++)
     {
         cout<<array[i]<<" ";
     }
     cout<<endl;
 }
-int * bubblesort(int * array,int size){ // Bubble sort:-Time complexity O(n^2)
+int * bubble_sort(int * array,int size){ // Bubble sort:-Time complexity O(n^2)
     int temp;
     int count=0;
     for (int i = 0; i < size-1; i++){
@@ -32,19 +33,47 @@ int * bubblesort(int * array,int size){ // Bubble sort:-Time complexity O(n^2)
     }
     return array;
 }
+int * insertion_sort(int * array, int size){ // Insertion sort:- Time Complexity O(n^2)
+        int index,j;
+        for(int i = 1; i <= size-1; i++){
+            index=array[i];
+            j=i-1;
+            while(j>=0 and array[j]>index){
+                array[j+1]=array[j];
+                j--;
+            }
+            array[j+1]=index;
+        }
+        return array;
+        
 
-
+}
+int * selection_sort(int * array , int size){ // selection sort:- Time Complexity O()
+        int temp=0;
+        for (int i = 0; i <= size-1; i++){
+            for (int j = i+1; j <= size-1; j++){
+                if(array[i]>array[j]){
+                    temp=array[i];
+                    array[i]=array[j];
+                    array[j]=temp;
+                }
+            }
+        }
+        return array;
+        
+}
 
 
 
 
 int main (){
 
-    // int array[]={1,49,54,7,2};
+    // int array[]={5,4,3,2};
     int array[]={1,2,3,4,5};
-
+    int size = (sizeof(array))/(sizeof(array[0]));
     int array_sorted[sizeof(array)/sizeof(array[0])];
-    display_arr(bubblesort(array,sizeof(array)/sizeof(array[0])),sizeof(array)/sizeof(array[0]));
- 
-       return 0;
+    // display_arr(bubble_sort(array,size),size,"Bubble sort"); 
+    // display_arr(insertion_sort(array,size),size,"Insertion sort");
+    display_arr(selection_sort(array,size),size,"selection sort");
+    return 0;
 }
