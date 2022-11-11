@@ -52,15 +52,16 @@ int * insertion_sort(int * array, int size){ // Insertion sort:- Time Complexity
 }
 int * selection_sort(int * array , int size){ // selection sort:- Time Complexity O(n^2)
         // worst time complexity:- O(n^2) and best time complexity:- O(n^2)
-        int temp=0;
-        for (int i = 0; i <= size-1; i++){
-            for (int j = i+1; j <= size-1; j++){
-                if(array[i]>array[j]){
-                    temp=array[i];
-                    array[i]=array[j];
-                    array[j]=temp;
+        int temp=0,min_index=0;
+        for (int i = 0; i < size-1; i++){    // Check for each element.
+            min_index=i;
+            for (int j = i+1; j <= size-1; j++){ // To Find the index value of the 
+                if(array[min_index]>array[j]){  // minimum element in the array.
+                    min_index=j;}               // . 
                 }
-            }
+            temp=array[i];                  //To Swap the min value
+            array[i]=array[min_index];      // .
+            array[min_index]=temp;          // .
         }
         return array;
         
@@ -71,12 +72,12 @@ int * selection_sort(int * array , int size){ // selection sort:- Time Complexit
 
 int main (){
 
-    // int array[]={5,4,3,2};
-    int array[]={1,2,3,4,5};
+    int array[]={5,4,3,2};
+    // int array[]={1,2,3,4,5};
     int size = (sizeof(array))/(sizeof(array[0]));
     int array_sorted[sizeof(array)/sizeof(array[0])];
     // display_arr(bubble_sort(array,size),size,"Bubble sort"); 
     // display_arr(insertion_sort(array,size),size,"Insertion sort");
-    // display_arr(selection_sort(array,size),size,"selection sort");
+    display_arr(selection_sort(array,size),size,"selection sort");
     return 0;
 }
