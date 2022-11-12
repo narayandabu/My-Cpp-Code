@@ -163,7 +163,7 @@ int * count_sort(int * array,int size){            //     Count sort:- Time Comp
         temp[j]=0;
     }
     for (int k = 0; k <=size-1; k++){
-        temp[array[k]]++;
+        temp[array[k]]= temp[array[k]] + 1;
     }
     int num=0;
     for (int m = 0; m <=max;){
@@ -173,7 +173,7 @@ int * count_sort(int * array,int size){            //     Count sort:- Time Comp
         }
         else{ 
            array[num]=m;
-           temp[m]--;
+           temp[m]=temp[m]-1;
            num++;
         } 
     }
