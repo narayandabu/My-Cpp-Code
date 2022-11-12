@@ -187,10 +187,8 @@ int * count_sort(int * array,int size){            //     Count sort:- Time Comp
 
 int main (){
     int array[]={5,4,3,2,0,1,56,32};
-
     // int array[]={1,2,3,4,5,6};
     int size = (sizeof(array))/(sizeof(array[0]));
-    // display_arr(quick_sort(array,0,(size-1)),size,"Merge Sort");
     display_arr(count_sort(array,size),size,"Count Sort");
 
     return 0;
