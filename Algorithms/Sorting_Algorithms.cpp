@@ -11,7 +11,8 @@ void display_arr(int *array,int size,string type_of_sort){ // To Display the arr
     }
     cout<<endl;
 }
-int * bubble_sort(int * array,int size){ // Bubble sort:-Time complexity O(n^2)
+// Worst Time Complexities are given:-  
+int * bubble_sort(int * array,int size){           // Bubble    sort:- Time complexity O(n^2)
     // worst time complexity:- O(n^2) and best time complexity:- O(n)
     int temp;
     int count=0;
@@ -34,7 +35,7 @@ int * bubble_sort(int * array,int size){ // Bubble sort:-Time complexity O(n^2)
     }
     return array;
 }
-int * insertion_sort(int * array, int size){ // Insertion sort:- Time Complexity O(n^2)
+int * insertion_sort(int * array, int size){       // Insertion sort:- Time Complexity O(n^2)
         // worst time complexity:- O(n^2) and best time complexity:- O(n)
         int index,j;
         for(int i = 1; i <= size-1; i++){
@@ -50,7 +51,7 @@ int * insertion_sort(int * array, int size){ // Insertion sort:- Time Complexity
         
 
 }
-int * selection_sort(int * array , int size){ // selection sort:- Time Complexity O(n^2)
+int * selection_sort(int * array , int size){      // selection sort:- Time Complexity O(n^2)
         // worst time complexity:- O(n^2) and best time complexity:- O(n^2)
         int temp=0,min_index=0;
         for (int i = 0; i < size-1; i++){    // Check for each element.
@@ -66,18 +67,131 @@ int * selection_sort(int * array , int size){ // selection sort:- Time Complexit
         return array;
         
 }
+int partition(int* array, int low, int high){     //Used in Quick Sort
+    int pivot = array[low];
+    int i = low + 1;
+    int j = high;
+    int temp;
+    do{
+        while (array[i] <= pivot){
+            i++;
+        }
+        while (array[j] > pivot){
+            j--;
+        }
+        if (i < j){
+            temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+    }while(i < j);
+    temp = array[low];
+    array[low] = array[j];
+    array[j] = temp;
+    return j;
+}
+int * quick_sort(int * array,int low,int high){    //quick sort:- Time Complexity O(n^2).
+    // Works on the principle of recursions.
+    //Average time complexity is O(nlogn).
+    int partitionIndex; // Index of pivot after partition.
+    if(low < high){
+        partitionIndex = partition(array, low, high); 
+        quick_sort(array, low, partitionIndex - 1);  // sort left subarray.
+        quick_sort(array, partitionIndex + 1, high); // sort right subarray.
+    }
+    return array;
+}
+void merging(int * array,int low,int high,int mid){// This Function is used merge two sorted arrays
+    int i,j,k;
+    i=low;
+    j=mid+1;
+    k=low;
+    int * temp = new int[high+1];
+    while (i<=mid and j<=high){
+        if (array[i]>array[j]){
+            temp[k]=array[j];
+            k++; j++;
+        }
+        else{
+            temp[k]=array[i];
+            k++; i++;
+        } 
+    }
+    while(i<=mid){
+        temp[k]=array[i];
+        k++; 
+        i++;
+    }
+    while(j<=high){
+        temp[k]=array[j];
+        k++; 
+        j++;
+    }
+    for (int l = low; l <= high; l++)
+    {
+        array[l]=temp[l];
+    }       
+    delete [] temp;
+}
+int * merge_sort(int * array,int low,int high){    //     Merge sort:- Time Complexity O(nlogn)  
+
+if(low<high){
+    int mid=(low+high)/2;
+    merge_sort(array,low,mid);
+    merge_sort(array,mid+1,high);
+    merging(array,low,high,mid);
+    return array;
+}
+else{
+    return array;
+}
 
 
+}
+int * count_sort(int * array,int size){            //     Count sort:- Time Complexity O(n+k)
+    // One the Fastest Algo till now but Space Complexity O(n)
+    // Generally used when Max number is not significantly high like 10k,50k etc.
+    int max=0;
+    for(int i = 0; i <= size-1; i++){
+        if(array[i]>max)
+        {
+            max=array[i];
+        }
+    }
+    int * temp = new int [max+1];
+    for (int j = 0; j <= max; j++){
+        temp[j]=0;
+    }
+    for (int k = 0; k <=size-1; k++){
+        temp[array[k]]++;
+    }
+    int num=0;
+    for (int m = 0; m <=max;){
+        if (temp[m]==0){
+            m++;
+            continue;
+        }
+        else{ 
+           array[num]=m;
+           temp[m]--;
+           num++;
+        } 
+    }
+    delete [] temp;
+    return array;
+    
+    
+
+}
 
 
 int main (){
+    int array[]={5,4,3,2,0,1,56,32};
 
-    int array[]={5,4,3,2};
-    // int array[]={1,2,3,4,5};
+    // int array[]={1,2,3,4,5,6};
     int size = (sizeof(array))/(sizeof(array[0]));
-    int array_sorted[sizeof(array)/sizeof(array[0])];
-    // display_arr(bubble_sort(array,size),size,"Bubble sort"); 
-    // display_arr(insertion_sort(array,size),size,"Insertion sort");
-    display_arr(selection_sort(array,size),size,"selection sort");
+    // display_arr(quick_sort(array,0,(size-1)),size,"Merge Sort");
+    display_arr(count_sort(array,size),size,"Count Sort");
+
     return 0;
 }
