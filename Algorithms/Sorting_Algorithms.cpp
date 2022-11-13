@@ -67,7 +67,7 @@ int * selection_sort(int * array , int size){      // selection sort:- Time Comp
         return array;
         
 }
-int partition(int* array, int low, int high){     //Used in Quick Sort
+int partition(int* array, int low, int high){      // Used in Quick Sort
     int pivot = array[low];
     int i = low + 1;
     int j = high;
@@ -90,7 +90,7 @@ int partition(int* array, int low, int high){     //Used in Quick Sort
     array[j] = temp;
     return j;
 }
-int * quick_sort(int * array,int low,int high){    //quick sort:- Time Complexity O(n^2).
+int * quick_sort(int * array,int low,int high){    //      quick sort:- Time Complexity O(n^2).
     // Works on the principle of recursions.
     //Average time complexity is O(nlogn).
     int partitionIndex; // Index of pivot after partition.
