@@ -116,7 +116,38 @@ class Binary_Tree{
             cout<<"Select a Particular Mode 'i' or 'r' ."<<endl;
            }
         }
-        
+        void insert_in_BST(Binary_Tree*root,Any key){ // Inserts a number in BST at its proper Place.
+            Binary_Tree * prev = NULL;
+            while (root!=NULL){
+                prev=root;
+                if (key==root->data)
+                {
+                    cout<<"Cannot insert "<<key<<" ,already in BST."<<endl;
+                    return;
+                }
+                else if (key<(root->data))
+                {
+                    root=root->left;
+                }
+                else
+                {
+                    root=root->right;
+                }
+            }
+            Binary_Tree * newbt = new Binary_Tree (key);
+            // Binary_Tree * add= &added;
+            if (key<prev->data)
+            {
+                prev->link_left(newbt);
+            }
+            else
+            {
+                prev->link_right(newbt);
+            }
+        }
+       
+ 
+
 };
 
 
@@ -137,6 +168,22 @@ int main (){
     Binary_Tree<int> rootr(20);
     Binary_Tree<int> rootl1(3);
     Binary_Tree<int> rootr1(8);
+    
+    /*  Representation of the BSt
+
+                    (10)
+                    /   \
+                  (7)   (20)
+                  / \   /  \
+                (3) (8) 
+                / \ / \
+                
+                
+                    */
+
+
+
+
     /*  Representation of the Binary Tree...
                    (4)
                    / \
@@ -159,13 +206,21 @@ int main (){
     // cout<<"preorder"<<endl;
     // root.postorder(&root);
     // cout<<"postorder"<<endl;
-    // root.inorder(&root);
-    // cout<<"inorder"<<endl;
+    root.inorder(&root);
+    cout<<"inorder"<<endl;
+
+    root.insert_in_BST(&root,19);
+
+    root.inorder(&root);
+    cout<<"inorder"<<endl;
+ 
     // cout<<root.isBST(&root)<<endl;
-           
-    root.sresult(&root,7,'i');
+    // root.sresult(&root,7,'r');     
+    // root.sresult(&root,19,'i');
     // cout<<root.getdata(root.bstsearchrecu(&root,89))<<endl;
     // cout<<root.getdata(root.bstsearchiter(&root,10))<<endl;
+
+    
 
     return 0;
 }
