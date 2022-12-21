@@ -135,7 +135,6 @@ class Binary_Tree{
                 }
             }
             Binary_Tree * newbt = new Binary_Tree (key);
-            // Binary_Tree * add= &added;
             if (key<prev->data)
             {
                 prev->link_left(newbt);
@@ -206,13 +205,13 @@ int main (){
     // cout<<"preorder"<<endl;
     // root.postorder(&root);
     // cout<<"postorder"<<endl;
-    root.inorder(&root);
-    cout<<"inorder"<<endl;
+    // root.inorder(&root);
+    // cout<<"inorder"<<endl;
 
-    root.insert_in_BST(&root,19);
+    // root.insert_in_BST(&root,19);
 
-    root.inorder(&root);
-    cout<<"inorder"<<endl;
+    // root.inorder(&root);
+    // cout<<"inorder"<<endl;
  
     // cout<<root.isBST(&root)<<endl;
     // root.sresult(&root,7,'r');     
