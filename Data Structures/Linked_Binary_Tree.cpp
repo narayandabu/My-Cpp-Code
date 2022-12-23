@@ -10,17 +10,18 @@ class Binary_Tree{
         Binary_Tree * left=NULL;
         Binary_Tree * right=NULL;
     public:
-        Binary_Tree(Any data){ // Default Constructor 
+        
+        Binary_Tree(Any data){ // Default Constructor. 
             Any * node = new Any;
             this->data=data;
         }
-        void link_left(Binary_Tree*left){ // To Link Left subBT
+        void link_left(Binary_Tree*left){ // To Link Left sub BT.
             this->left=left;
         }
-        void link_right(Binary_Tree*right){ // To Link Right subBT
+        void link_right(Binary_Tree*right){ // To Link Right subBT.
             this->right=right;
         }
-        void preorder(Binary_Tree*root){ // To Perform preorder traversal
+        void preorder(Binary_Tree*root){ // To Perform preorder traversal.
            if(root!= NULL){
             cout<<root->data<<" ";
             preorder(root->left);
@@ -28,7 +29,7 @@ class Binary_Tree{
         }
            return;
         }
-        void postorder(Binary_Tree*root){ // To Perform postorder traversal
+        void postorder(Binary_Tree*root){ // To Perform postorder traversal.
             if(root!= NULL){
                 postorder(root->left);
                 postorder(root->right);
@@ -36,7 +37,7 @@ class Binary_Tree{
             }
             return;
         }
-        void inorder(Binary_Tree*root){ // To Perform inorder traversal
+        void inorder(Binary_Tree*root){ // To Perform inorder traversal.
             if(root!= NULL){
                 inorder(root->left);
                 cout<<root->data<<" ";
@@ -45,7 +46,7 @@ class Binary_Tree{
             return;
 
         }
-        bool isBST(Binary_Tree*root){ // To Check if a BT is a BST
+        bool isBST(Binary_Tree*root){ // To Check if a BT is a BST.
         if (root == NULL)return true;
         if (root->left != NULL && root->left->data > root->data)
             return false;
@@ -55,10 +56,10 @@ class Binary_Tree{
             return false;
         return true;
         }
-        Any getdata(Binary_Tree* root){ // Returns the data in the node
+        Any getdata(Binary_Tree* root){ // Returns the data in the node.
             return root->data;   
         }
-        Binary_Tree * bstsearchrecu(Binary_Tree *root, Any key){ // BS in BST recursively
+        Binary_Tree * bstsearchrecu(Binary_Tree *root, Any key){ // BS in BST recursively.
             if (root==NULL){
                 return NULL;
             }
@@ -75,7 +76,7 @@ class Binary_Tree{
                 return bstsearchrecu(root->right,key);
             }  
         }
-        Binary_Tree * bstsearchiter(Binary_Tree *root, Any key){ // BS in BST iteratively 
+        Binary_Tree * bstsearchiter(Binary_Tree *root, Any key){ // BS in BST iteratively. 
             while (root!=NULL){
                 if(root->data==key){
                     return root;
@@ -89,7 +90,7 @@ class Binary_Tree{
             }
             return NULL;
         }
-        void sresult(Binary_Tree * root,Any key, char type){ // Returns if the element is found or not
+        void sresult(Binary_Tree * root,Any key, char type){ // Returns if the element is found or not.
            if(type=='r'){ 
                 if((root->bstsearchrecu(root,key))==NULL)
                 {
@@ -144,7 +145,37 @@ class Binary_Tree{
                 prev->link_right(newbt);
             }
         }
-       
+        Binary_Tree * inorderpredecesor(Binary_Tree*root){
+            root=root->left;
+            while(root->right != NULL){
+                root =root->right;
+            }
+            return root;
+        }
+        Binary_Tree * delete_in_BST(Binary_Tree*root,Any key){
+           Binary_Tree * ipre;
+           if(root==NULL){
+                return NULL;
+           }
+           else if (root->left==NULL and root->right==NULL){
+                root=NULL;
+                delete root;
+                // cout<<"deleted"<<endl;
+                return NULL;
+           }
+           if(key<root->data){
+            root->left=delete_in_BST(root->left,key);
+           }
+           else if(key>root->data){
+            root->right=delete_in_BST(root->right,key);
+           }
+           else{
+               ipre = inorderpredecesor(root);
+               root->data = ipre->data;
+               root->left = delete_in_BST(root->left,ipre->data);
+           }
+           return root;
+        }
  
 
 };
@@ -154,7 +185,7 @@ class Binary_Tree{
 int main (){       
     // Making Binary tree...
     
-    //Normal Random BT
+    // Normal Random BT
     // Binary_Tree<int> root(4);                       
     // Binary_Tree<int> rootl(42);                     
     // Binary_Tree<int> rootr(67);
@@ -168,7 +199,8 @@ int main (){
     Binary_Tree<int> rootl1(3);
     Binary_Tree<int> rootr1(8);
     
-    /*  Representation of the BSt
+    /*  
+            Representation of the BSt
 
                     (10)
                     /   \
@@ -178,12 +210,16 @@ int main (){
                 / \ / \
                 
                 
-                    */
+    
+    */
 
 
 
 
-    /*  Representation of the Binary Tree...
+    /*  
+            
+          Representation of the Binary Tree...
+                   
                    (4)
                    / \
                  (42)(67)   
@@ -193,10 +229,12 @@ int main (){
 
 
     // Linking...
+
     root.link_left(&rootl);
     root.link_right(&rootr);
     rootl.link_left(&rootl1);
     rootl.link_right(&rootr1);
+
 
     // Functions Call...
 
@@ -205,14 +243,12 @@ int main (){
     // cout<<"preorder"<<endl;
     // root.postorder(&root);
     // cout<<"postorder"<<endl;
-    // root.inorder(&root);
-    // cout<<"inorder"<<endl;
-
     // root.insert_in_BST(&root,19);
-
-    // root.inorder(&root);
-    // cout<<"inorder"<<endl;
- 
+    root.inorder(&root);
+    cout<<"inorder"<<endl;
+    root.delete_in_BST(&root,10);
+    root.inorder(&root);
+    cout<<"inorder"<<endl;
     // cout<<root.isBST(&root)<<endl;
     // root.sresult(&root,7,'r');     
     // root.sresult(&root,19,'i');
