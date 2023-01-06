@@ -126,62 +126,8 @@ void function6(int input1,int input2){  //************ Prime Number in a Given R
     
 
 }
-
-
-
-
-int main (){
-
-        //********************Finding the table of a given number*******************
-        // int input;
-        // cout<<"Enter a Number :- ";
-        // cin>>input;
-        // function1(input);
-
-
-        //*************finding sum of n natural numbers in O(1) time***************
-        // int output;
-        // output=(input*(input+1))/2;  .
-        // cout<<output;
-
-        //*************max number in an array************
-        // int array[]={0,1,2,3,4,35,6,7,8,9};
-        // int max = function2(10,array);
-        // cout<<max;
-
-        //************if number is prime or not***********
-        // int input;
-        // cout<<"Enter a Number :- ";
-        // cin>>input;
-        // string ans = function3(input);
-        // cout<<ans;
-        //************alternate to finding if number is prime or not************
-        // string answ=altfunction3(input); (better than previous)
-        // cout<<answ;
-        
-        //************* decimal to binary ****************
-
-    //    int input;
-    //    cin>>input;
-    //    function4(input);
-
-        //*************** Reverse A Number ***************
-    
-    // int Input;
-    // cin>>Input;
-    // function5(Input);
-
-        // ************ Prime Number in a Given Range ***********
-    
-    // int input1,input2;
-    // cin>>input1>>input2;
-    // function6(input1,input2);
-
-        // ****************                       ****************
-
-
-
-        
-            
-       return 0;
+int main(){
+    return 0;
 }
+
+

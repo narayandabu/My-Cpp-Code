@@ -12,7 +12,7 @@ class Binary_Tree{
     public:
         
         Binary_Tree(Any data){ // Default Constructor. 
-            Any * node = new Any;
+            // Any * node = new Any;
             this->data=data;
         }
         void link_left(Binary_Tree*left){ // To Link Left sub BT.
@@ -184,7 +184,7 @@ class Binary_Tree{
 
 int main (){       
     // Making Binary tree...
-    
+     
     // Normal Random BT
     // Binary_Tree<int> root(4);                       
     // Binary_Tree<int> rootl(42);                     
