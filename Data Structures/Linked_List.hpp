@@ -56,9 +56,3 @@ int get_data(Linkedlist<Any>*headptr,Any data){
 
 
 
-int main (){
-    ;
-
-    
-	return 0;
-}

@@ -127,6 +127,7 @@ void function6(int input1,int input2){  //************ Prime Number in a Given R
 
 }
 int main(){
+    function1(3);
     return 0;
 }
 

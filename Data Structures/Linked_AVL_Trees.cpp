@@ -22,7 +22,7 @@ public:
     }
     int getheight(AVL_Tree*node){
         int h = 0;
-        if (node != NULL){
+        if(node != NULL){
             int l_height = getheight(node->left);
             int r_height = getheight(node->right);
             int max_height = max(l_height, r_height);
@@ -43,75 +43,79 @@ public:
         temp->left=parent;
         return temp;
     }
+    AVL_Tree * ll_rotat(AVL_Tree * parent){
+        AVL_Tree *temp;
+        temp=parent->left;
+        parent->left=temp->right;
+        temp->right=parent;
+        return temp;
+    }
+    AVL_Tree * rl_rotat(AVL_Tree * parent){
+        AVL_Tree * temp;
+        temp= parent->right;
+        parent->right=ll_rotat(temp);
+        return rr_rotat(parent);
 
-    
+    }
+    AVL_Tree * lr_rotat(AVL_Tree * parent){
+        AVL_Tree* temp;
+        temp = parent->left;
+        parent->left=rr_rotat(temp);
+        return ll_rotat(parent);
+    }
+
+
     AVL_Tree * balance(AVL_Tree * node){
         int bal_factor=getbalancefactor(node);
-         if (bal_factor > 1) {
-      if (difference(t->l) > 0)
-         t = ll_rotat(t);
-      else
-         t = lr_rotat(t);
-   } else if (bal_factor < -1) {
-      if (difference(t->r) > 0)
-         t = rl_rotat(t);
-      else
-         t = rr_rotat(t);
-   }
-   return t;
-
-    }
-    AVL_Tree * insert(AVL_Tree * node,Any key){
-        if (node==NULL){
-            node=new AVL_Tree;
-            node->data=key;
-            return node;
-        }
-        if (key<node->data){
-            node->left =insert(node->left,key);
-        }
-        else if (key>node->data){
-            node->right=insert(node->right,key);
-        }
-        node->height = 1 + max(getheight(node->left),getheight(node->right));
-        int BF= getbalancefactor(node);
-
-        // L-L rotation
-        if (BF>1 and key<node->left->data){
-           return rightrotate(node);
-        }
-        // R-R rotation
-        if (BF<-1 and key>node->right->data)
-        {
-            return leftrotate(node);
-        }
-        // L-R rotation
-        if (BF>1 and key>node->left->data)
-        {
-            node->left = leftrotate(node->left);
-            return rightrotate(node);
-        }
-        // R-L rotation
-        if (BF<-1 and key<node->right->data)
-        {
-            node->right = rightrotate(node);
-            return leftrotate(node);
-        }   
+        if(bal_factor > 1){
+            if(getbalancefactor(node->left) > 0)
+                node = ll_rotat(node);
+            else
+                node = lr_rotat(node);
+            } 
+        else if(bal_factor < -1){
+            if (getbalancefactor(node->right) > 0)
+                node = rl_rotat(node);
+            else
+                node = rr_rotat(node);
+            }
         return node;
     }
-    
-    
+    AVL_Tree * insert(AVL_Tree * node,Any key){
+        if(node==NULL){
+            node=new AVL_Tree(key);
+            node->data=key;
+            node->left=NULL;
+            node->right=NULL;
+            return node;
+        }
+        else if(key<node->data){
+            node->left =insert(node->left,key);
+            node=balance(node);
+        }
+        else if(key>node->data){
+            node->right=insert(node->right,key);
+            node=balance(node);
+        }
+        return node;
+    }
     void preorder(AVL_Tree*root){ // To Perform preorder traversal.
            if(root!= NULL){
             cout<<root->data<<" ";
             preorder(root->left);
             preorder(root->right);
-        }
+            }
            return;
         }
-
-
-
+    void inorder(AVL_Tree*root){ // To Perform inorder traversal.
+            if(root!= NULL){
+                inorder(root->left);
+                cout<<root->data<<" ";
+                inorder(root->right);
+            }
+            return;
+        }    
+   
 };
 
 
@@ -119,15 +123,12 @@ public:
 
 
 int main (){
-    AVL_Tree<int> node(23); 
-    node.insert(&node,22);
-    node.insert(&node,25);
-    // cout<<node.insert(&node,45)->getheight(node.insert(&node,45))<<endl;
-    cout<<node.getheight(&node)<<endl;  
 
-    // AVL_Tree<int> nodel(22);
+        AVL_Tree<int> root(3);
+        root.insert(&root,4);
 
-    // node.preorder(&node); 
-
+        
+        
+        
        return 0;
 }

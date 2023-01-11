@@ -5,7 +5,7 @@
    is balanced or not.
 */
 #include <iostream>
-#include "stackwitharray.cpp"
+#include "StackPractice.cpp"
 #include <string.h>
 using namespace std;
 

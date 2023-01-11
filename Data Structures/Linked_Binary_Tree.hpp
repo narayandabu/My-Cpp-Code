@@ -182,80 +182,80 @@ class Binary_Tree{
 
 
 
-int main (){       
-    // Making Binary tree...
+// int main (){       
+//     // Making Binary tree...
      
-    // Normal Random BT
-    // Binary_Tree<int> root(4);                       
-    // Binary_Tree<int> rootl(42);                     
-    // Binary_Tree<int> rootr(67);
-    // Binary_Tree<int> rootl1(89);
-    // Binary_Tree<int> rootr1(56);
+//     // Normal Random BT
+//     // Binary_Tree<int> root(4);                       
+//     // Binary_Tree<int> rootl(42);                     
+//     // Binary_Tree<int> rootr(67);
+//     // Binary_Tree<int> rootl1(89);
+//     // Binary_Tree<int> rootr1(56);
 
-    // For a  BST
-    Binary_Tree<int> root(10);                       
-    Binary_Tree<int> rootl(7);                     
-    Binary_Tree<int> rootr(20);
-    Binary_Tree<int> rootl1(3);
-    Binary_Tree<int> rootr1(8);
+//     // For a  BST
+//     Binary_Tree<int> root(10);                       
+//     Binary_Tree<int> rootl(7);                     
+//     Binary_Tree<int> rootr(20);
+//     Binary_Tree<int> rootl1(3);
+//     Binary_Tree<int> rootr1(8);
     
-    /*  
-            Representation of the BSt
+//     /*  
+//             Representation of the BSt
 
-                    (10)
-                    /   \
-                  (7)   (20)
-                  / \   /  \
-                (3) (8) 
-                / \ / \
+//                     (10)
+//                     /   \
+//                   (7)   (20)
+//                   / \   /  \
+//                 (3) (8) 
+//                 / \ / \
                 
                 
     
-    */
+//     */
 
 
 
 
-    /*  
+//     /*  
             
-          Representation of the Binary Tree...
+//           Representation of the Binary Tree...
                    
-                   (4)
-                   / \
-                 (42)(67)   
-                 / \ 
-               (89)(56)
-    */
+//                    (4)
+//                    / \
+//                  (42)(67)   
+//                  / \ 
+//                (89)(56)
+//     */
 
 
-    // Linking...
+//     // Linking...
 
-    root.link_left(&rootl);
-    root.link_right(&rootr);
-    rootl.link_left(&rootl1);
-    rootl.link_right(&rootr1);
-
-
-    // Functions Call...
+//     root.link_left(&rootl);
+//     root.link_right(&rootr);
+//     rootl.link_left(&rootl1);
+//     rootl.link_right(&rootr1);
 
 
-    // root.preorder(&root);
-    // cout<<"preorder"<<endl;
-    // root.postorder(&root);
-    // cout<<"postorder"<<endl;
-    // root.insert_in_BST(&root,19);
-    root.inorder(&root);
-    cout<<"inorder"<<endl;
-    root.delete_in_BST(&root,10);
-    root.inorder(&root);
-    cout<<"inorder"<<endl;
-    // cout<<root.isBST(&root)<<endl;
-    // root.sresult(&root,7,'r');     
-    // root.sresult(&root,19,'i');
-    // cout<<root.getdata(root.bstsearchrecu(&root,89))<<endl;
-    // cout<<root.getdata(root.bstsearchiter(&root,10))<<endl;
+//     // Functions Call...
+
+
+//     // root.preorder(&root);
+//     // cout<<"preorder"<<endl;
+//     // root.postorder(&root);
+//     // cout<<"postorder"<<endl;
+//     // root.insert_in_BST(&root,19);
+//     root.inorder(&root);
+//     cout<<"inorder"<<endl;
+//     root.delete_in_BST(&root,10);
+//     root.inorder(&root);
+//     cout<<"inorder"<<endl;
+//     // cout<<root.isBST(&root)<<endl;
+//     // root.sresult(&root,7,'r');     
+//     // root.sresult(&root,19,'i');
+//     // cout<<root.getdata(root.bstsearchrecu(&root,89))<<endl;
+//     // cout<<root.getdata(root.bstsearchiter(&root,10))<<endl;
 
     
 
-    return 0;
-}
+//     return 0;
+// }
