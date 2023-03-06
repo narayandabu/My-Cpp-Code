@@ -134,7 +134,6 @@ void merging(int * array,int low,int high,int mid){// This Function is used merg
     delete [] temp;
 }
 int * merge_sort(int * array,int low,int high){    //     Merge sort:- Time Complexity O(nlogn)  
-
 if(low<high){
     int mid=(low+high)/2;
     merge_sort(array,low,mid);

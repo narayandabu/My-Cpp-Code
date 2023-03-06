@@ -26,9 +26,11 @@ class Queue{
         cout<<"Cannot insert an element to a full Queue."<<endl;
        }      
     }
-    void Qdelete(){ // Function to delete an Element in the the Queue 
+    Any Qdelete(){ // Function to delete an Element in the the Queue 
+        Any deleted = arr[fend+1];
         arr[fend+1]=0;
         fend++;
+        return deleted;
     }
     int Qis_full(){ // Function that returns 0 if Queue is full else -1 
         if (bend==(size-1))
@@ -43,11 +45,11 @@ class Queue{
     int Qis_empty(){ // Function that returns 0 if Queue is empty else -1 
         if (bend==fend)
         {
-            return 0;
+            return 1;
         }
         else
         {
-            return -1;
+            return 0;
         }
     }
     void Qreset(){ // Function that resets the entire Queue 

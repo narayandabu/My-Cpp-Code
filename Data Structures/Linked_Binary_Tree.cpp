@@ -118,6 +118,11 @@ class Binary_Tree{
            }
         }
         void insert_in_BST(Binary_Tree*root,Any key){ // Inserts a number in BST at its proper Place.
+            if (!isBST(root))
+            {
+                cout<<"Not a BST To insert"<<endl;
+                return;
+            }
             Binary_Tree * prev = NULL;
             while (root!=NULL){
                 prev=root;
@@ -144,6 +149,7 @@ class Binary_Tree{
             {
                 prev->link_right(newbt);
             }
+            cout<<"inserted"<<endl;
         }
         Binary_Tree * inorderpredecesor(Binary_Tree*root){
             root=root->left;
@@ -182,22 +188,22 @@ class Binary_Tree{
 
 
 
-// int main (){       
+int main (){       
 //     // Making Binary tree...
      
 //     // Normal Random BT
-//     // Binary_Tree<int> root(4);                       
-//     // Binary_Tree<int> rootl(42);                     
-//     // Binary_Tree<int> rootr(67);
-//     // Binary_Tree<int> rootl1(89);
-//     // Binary_Tree<int> rootr1(56);
+    // Binary_Tree<int> root(4);                       
+    // Binary_Tree<int> rootl(42);                     
+    // Binary_Tree<int> rootr(67);
+    // Binary_Tree<int> rootl1(89);
+    // Binary_Tree<int> rootr1(56);
 
 //     // For a  BST
-//     Binary_Tree<int> root(10);                       
-//     Binary_Tree<int> rootl(7);                     
-//     Binary_Tree<int> rootr(20);
-//     Binary_Tree<int> rootl1(3);
-//     Binary_Tree<int> rootr1(8);
+    Binary_Tree<int> root(10);                       
+    Binary_Tree<int> rootl(7);                     
+    Binary_Tree<int> rootr(20);
+    Binary_Tree<int> rootl1(3);
+    Binary_Tree<int> rootr1(8);
     
 //     /*  
 //             Representation of the BSt
@@ -230,24 +236,24 @@ class Binary_Tree{
 
 //     // Linking...
 
-//     root.link_left(&rootl);
-//     root.link_right(&rootr);
-//     rootl.link_left(&rootl1);
-//     rootl.link_right(&rootr1);
+    root.link_left(&rootl);
+    root.link_right(&rootr);
+    rootl.link_left(&rootl1);
+    rootl.link_right(&rootr1);
 
 
 //     // Functions Call...
 
 
-//     // root.preorder(&root);
-//     // cout<<"preorder"<<endl;
-//     // root.postorder(&root);
-//     // cout<<"postorder"<<endl;
-//     // root.insert_in_BST(&root,19);
-//     root.inorder(&root);
-//     cout<<"inorder"<<endl;
+    root.preorder(&root);
+    cout<<"preorder"<<endl;
+    root.postorder(&root);
+    cout<<"postorder"<<endl;
+    root.insert_in_BST(&root,19);
+   root.inorder(&root);
+    cout<<"inorder"<<endl;
 //     root.delete_in_BST(&root,10);
-//     root.inorder(&root);
+    // root.inorder(&root);
 //     cout<<"inorder"<<endl;
 //     // cout<<root.isBST(&root)<<endl;
 //     // root.sresult(&root,7,'r');     
@@ -257,5 +263,5 @@ class Binary_Tree{
 
     
 
-//     return 0;
-// }
+    return 0;
+}
