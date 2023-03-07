@@ -22,33 +22,17 @@ int main(){
     int t=0;
     cin>>t;    
     while(t--){
-      int n{0},sum{0},input{0};
-      vector<int> arr;
-      cin>>n>>sum;
-      for (int i = 0; i < n; i++)
-      {
-        cin>>input;
-        arr.push_back(input);
-      }
-      if (is_sorted(arr)==1)
-      {
-        cout<<"YES"<<el;
-      }
-      else
-      {
-        int temp{0},min{0},max{0};
-        for (int i = 0; i < arr.size(); i++)
-        {
-            max=i;
-            temp=arr[i];
-            
-        }
-        
-
-
-      }
       
-
-    }
+        int n{0},x{0};
+        set<int> stick;
+        cin>>n;
+        for (int i = 0; i < n; i++)
+        {
+          cin>>x;
+          stick.insert(x);
+        }
+        auto it = (--(--stick.end()));
+        cout<<(*it)<<el;
+      }
       return 0;
 }
