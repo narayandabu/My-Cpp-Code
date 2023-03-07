@@ -10,3 +10,4 @@ int pivotInteger(int n){
     if((out*out)==(n*(n+1)/2))return out;
     else return -1;
 }
+//https://leetcode.com/problems/find-the-pivot-integer/description/

@@ -12,3 +12,4 @@ int largestAltitude(vector<int>& gain) {
     }
     return max;
 }
+// https://leetcode.com/problems/find-the-highest-altitude/

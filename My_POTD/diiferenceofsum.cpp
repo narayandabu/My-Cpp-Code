@@ -20,3 +20,4 @@ int differenceOfSum(vector<int>& nums){
         return sum-digitsum;
 
 }
+//https://leetcode.com/problems/difference-between-element-sum-and-digit-sum-of-an-array/
