@@ -153,8 +153,25 @@ int mod(int x){
     if(x>=0)return x;
     else return -1*x;
 }
+int mostWordsFound(vector<string>& sentences) {
+    int size=sentences.size();
+    int prev_max_count{0},max_count{0};
+    for (auto i:sentences){
+      for (auto j:i){
+        if (j==' '){
+          prev_max_count++;
+        }  
+      }
+      max_count=max(max_count,prev_max_count+1);
+    }
+    return max_count;
+}
+string truncateSentence(string s, int k) {
+        
+      
 
 
+    }
 
 
 
@@ -174,12 +191,15 @@ vector<int> kadanes_algo(vector<int>& nums){ // incomplete
     }
     return nums;
 }
+
 int main(){
+
+
+   
+    string temp="hellow world";
+    cout<<temp[1];
+    
     
       
-
-
-
-
 	return 0;
 }

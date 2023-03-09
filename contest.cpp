@@ -2,37 +2,29 @@
 using namespace std;
 #define el endl
 
-int is_sorted(vector<int> &arr){
-  int prev{INT_MIN};
-  for (int i = 0; i < arr.size()-1; i++){
-    prev=arr.at(i);
-    if (prev>arr.at(i+1))
-    {
-      return -1;
-    }
-  }
-  return 1;
-
-}
-
-
-
-
+const int n=(2*1e5)+7;
+int arr[n];
 int main(){
     int t=0;
     cin>>t;    
     while(t--){
-      
-        int n{0},x{0};
-        set<int> stick;
-        cin>>n;
-        for (int i = 0; i < n; i++)
-        {
-          cin>>x;
-          stick.insert(x);
+        int N{0},input{0},max{0};
+        cin>>N;
+        vector<int> unique;
+        for (int i = 0; i < N; i++){
+          cin>>input;
+          unique.push_back(input);
         }
-        auto it = (--(--stick.end()));
-        cout<<(*it)<<el;
+        for (int i = 0; i < N; i++)
+        {
+          arr[unique.at(i)]++; 
+        }
+        for (int i = 0; i < N; i++){
+          if(max<=arr[unique.at(i)]){
+            max=arr[unique.at(i)];
+          }
+        }
+        cout<<(N-max)<<el;
       }
-      return 0;
+    return 0;
 }
