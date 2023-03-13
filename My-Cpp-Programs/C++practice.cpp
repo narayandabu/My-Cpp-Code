@@ -71,23 +71,15 @@ void function4(int data){ // ************* decimal to binary ****************
     }
 }
 
-void function5(int input){  // *************** Reverse A Number ***************
+int function5(int input){  // *************** Reverse A Number ***************
 
     int input1=input;
     int count = 0;
-    while (true)
-    {
-        if (input1==0)
-        {
-            break;
-        }
-        else
-        {
+    while (input1!=0){
             count++;
-            input1=input1/10;
-        }    
+            input1/=10;
+           
     }
-    // cout<<count<<endl;
     int finl=0;
     int i = count;
     int rem=0;
@@ -95,8 +87,9 @@ void function5(int input){  // *************** Reverse A Number ***************
      rem = input%10;
      input=(input/10);
      finl = finl + (rem * pow(10,(i))); 
+     
     }
-    cout<<finl<<endl;
+    return finl;
 
 }
 
@@ -127,7 +120,7 @@ void function6(int input1,int input2){  //************ Prime Number in a Given R
 
 }
 int main(){
-    function1(3);
+    cout<<function5(123);
     return 0;
 }
 
