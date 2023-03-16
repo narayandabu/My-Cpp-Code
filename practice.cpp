@@ -173,7 +173,6 @@ long long int binary_exp_i(int a,int b){ // Iterative approach
       }
       return ans;
 }
-
 string longestCommonPrefix(vector<string>& strs) {
         vector<string> comprefix;
         for (int i = 0; i < strs.size(); i++)
@@ -275,7 +274,6 @@ int workbook(int n, int k, vector<int> arr) {
        
 }
 long repeatedString(string s, long n) {
-
       long int ct{0},ct2{0},ct3{0};
       for (long int i = 0; i < s.size(); i++)
       {
@@ -310,17 +308,7 @@ long repeatedString(string s, long n) {
       
 
 }
-vector<int> replaceElements(vector<int>& arr) {
-      int max{-1},current{0},size=arr.size();
-      for(int i=size-1;i>=0;i--){
-        if (arr[i]>max){
-          current=arr[i];
-          arr[i]=max;
-          max=current;
-        }
-      }
-      return arr;
-}
+
 
 vector<int> kadanes_algo(vector<int>& nums){ // incomplete
 
@@ -333,27 +321,40 @@ vector<int> kadanes_algo(vector<int>& nums){ // incomplete
     }
     return nums;
 }
-int finalValueAfterOperations(vector<string>& operations) {
-      ios_base::sync_with_stdio(false);
-      cin.tie(NULL);
-      int ans{0};
-      for (int i = 0; i < operations.size(); i++)
-      {
-        
-      }
-      
+int arraySign(vector<int>& nums) {
+        int sign{0};
+        for (int i = 0; i < nums.size(); i++){
+          if (nums.at(i)==0){
+            return 0;
+          }
+          else if(nums.at(i)<0)sign++;
+        }
+        if (sign&1)return -1;
+        return 1;
+}
 
 
 
 
-
-    }
 
 int main(){
     
+    map<char,int> m;
+    m['a']++;
+    m['e']=0;
+    m['i']++;
+    m['o']+=2;
+    for (auto it=m.begin();it!=m.end();it++){
+      cout<<(*it).first<<" "<<(*it).second<<endl;
+    }
+    m['a']++;
+    cout<<(*m.find('a')).second;
+ 
 
-  vector<string> s{{"hellow"},{"hell"}};
-  cout<<s.at(0)<<" "<<s.at(1);
+
+
+
+  
 
     
       
