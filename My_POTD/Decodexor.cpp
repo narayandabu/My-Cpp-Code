@@ -17,4 +17,6 @@ vector<int> decode(vector<int>& encoded, int first) {
         }
         encoded.push_back(xored);
         return encoded;
-    }
+}
+
+//https://leetcode.com/problems/decode-xored-array/

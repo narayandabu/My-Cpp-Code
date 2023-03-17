@@ -12,3 +12,5 @@ int finalValueAfterOperations(vector<string>& operations){
       }
       return ans;
 }
+
+//https://leetcode.com/problems/final-value-of-variable-after-performing-operations/

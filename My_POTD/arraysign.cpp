@@ -16,3 +16,5 @@ int arraySign(vector<int>& nums){
         if (sign&1)return -1;
         return 1;
 }
+
+//https://leetcode.com/problems/sign-of-the-product-of-an-array/

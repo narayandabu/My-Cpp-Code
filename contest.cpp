@@ -28,28 +28,33 @@ long minTime(vector<int> files, int numCores, int limit) {
 vector<int> stringAnagram(vector<string> dictionary, vector<string> query) {
       vector<int> ans;
       int temp{0};
+      map<string,int> mp;
       for (int i = 0; i < dictionary.size(); i++){
           sort(dictionary.at(i).begin(),dictionary.at(i).end());
       }
-      sort(dictionary.begin(),dictionary.end());
       for (int i = 0; i < query.size(); i++){
         sort(query.at(i).begin(),query.at(i).end());
       }
+      for (int i = 0; i < dictionary.size(); i++){
+            mp[dictionary.at(i)]++;
+      }
       for (int i = 0; i < query.size(); i++)
       {
-            temp=0;
-            for (int j = 0; j < dictionary.size(); j++)
+            auto it=mp.find(query.at(i));
+            if (it!=mp.end())
             {
-                  if (query[i]==dictionary[j])
-                  {
-                        temp++;
-                  }  
+              ans.push_back((*it).second);                  
             }
-            ans.push_back(temp);
+            else
+            {
+                  ans.push_back(0);
+            }
       }
       return ans;
 
 }
+
+
 
 
 
@@ -65,13 +70,15 @@ vector<int> stringAnagram(vector<string> dictionary, vector<string> query) {
 int main(){
       ios_base::sync_with_stdio(false);
       cin.tie(NULL);
-      map<string,int> mp;
-      mp["abs"]++;
-      mp["sba"]++;
-      for (auto i = mp.begin(); i !=mp.end() ; i++)
-      {
-            cout<<(*i).second;
+      int t=0;
+      cin>>t;
+      while(t--){
+         int x{0},y{0};
+         cin>>x>>y;
       }
+      return 0;
+      
+      
       
       
 }

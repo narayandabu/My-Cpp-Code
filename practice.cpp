@@ -2,6 +2,8 @@
 #define el endl;
 using namespace std;
 
+
+
 bool isPowerofTwo(long long n){
       if(n==1 or n==2){
         return true;
@@ -309,7 +311,6 @@ long repeatedString(string s, long n) {
 
 }
 
-
 vector<int> kadanes_algo(vector<int>& nums){ // incomplete
 
     int max_so_far{INT_MIN},max_ending_here{0};
@@ -321,17 +322,8 @@ vector<int> kadanes_algo(vector<int>& nums){ // incomplete
     }
     return nums;
 }
-int arraySign(vector<int>& nums) {
-        int sign{0};
-        for (int i = 0; i < nums.size(); i++){
-          if (nums.at(i)==0){
-            return 0;
-          }
-          else if(nums.at(i)<0)sign++;
-        }
-        if (sign&1)return -1;
-        return 1;
-}
+
+
 
 
 
@@ -339,24 +331,8 @@ int arraySign(vector<int>& nums) {
 
 int main(){
     
-    map<char,int> m;
-    m['a']++;
-    m['e']=0;
-    m['i']++;
-    m['o']+=2;
-    for (auto it=m.begin();it!=m.end();it++){
-      cout<<(*it).first<<" "<<(*it).second<<endl;
-    }
-    m['a']++;
-    cout<<(*m.find('a')).second;
+   
  
-
-
-
-
-  
-
-    
       
 	return 0;
 }

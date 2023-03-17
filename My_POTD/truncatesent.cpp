@@ -17,3 +17,4 @@ string truncateSentence(string s, int k) {
       }
       return ans;
 }
+//https://leetcode.com/problems/truncate-sentence/description/

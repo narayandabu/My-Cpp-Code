@@ -17,3 +17,4 @@ int mostWordsFound(vector<string>& sentences) {
     }
     return max_count;
 }
+//https://leetcode.com/problems/maximum-number-of-words-found-in-sentences/
