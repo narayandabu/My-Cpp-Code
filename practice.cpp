@@ -175,20 +175,7 @@ long long int binary_exp_i(int a,int b){ // Iterative approach
       }
       return ans;
 }
-string longestCommonPrefix(vector<string>& strs) {
-        vector<string> comprefix;
-        for (int i = 0; i < strs.size(); i++)
-        {
-          int size=max(strs[i].size(),strs[i+1].size());
-          for (int i = 0; i < size; i++)
-          {
-            
-          }
-          
-        }
-        
 
-    }
 bool isPalindrome(int x) {
     int rem{0},count{0},ans{0},tens{0},temp{0};
     temp=x;
@@ -266,8 +253,8 @@ int workbook(int n, int k, vector<int> arr) {
       for (int i = 0; i < arr.size(); i++)
       {
         questions=arr.at(i)-k;
-        if (pageno<questions)
-        {
+        if (pageno<questions){
+          
           speq++;
         }
         
@@ -323,16 +310,75 @@ vector<int> kadanes_algo(vector<int>& nums){ // incomplete
     return nums;
 }
 
+bool arrayStringsAreEqual(vector<string>& word1, vector<string>& word2) {
+  int i{0};      
+  while (word1.size()!=1){
+    word1[i]+=word1[i+1];
+    auto it1=word1.begin()+1;
+    word1.erase(it1);
+  }
+  while (word2.size()!=1)
+  {
+    word2[i]+=word2[i+1];
+    auto it2=word2.begin()+1;
+    word2.erase(it2);
+  }
+  if(word1[0]==word2[0])return true;
+  else return false;
+}
+vector<int> getConcatenation(vector<int>& nums) {
+      ios_base::sync_with_stdio(false);
+      cin.tie(NULL);
+     int size=nums.size();
+      for (int i = 0; i < size; i++){
+        nums.push_back(nums[i]);
+      }
+      return nums;
+      
+      
+
+     
+
+}
 
 
 
+int sum(int a ,int b){
+  if(b==0){
+  return a;
+  }
+  return sum(a+=1,b-=1);
+}
 
+vector<int> separateDigits(vector<int>& nums) {
+      vector<int> ans;
+      ans[0]=0;
+      int size=nums.size(),temp{0},modulo{0};
+      for (int i = 0; i < size; i++){
+        temp=nums[i];
+        while(temp!=0){
+          modulo=temp%10;
+          ans.insert(ans.end()-1,modulo);
+          temp/=10;
+        }
+
+      }
+      return ans;
+
+
+        
+    }
 
 
 int main(){
+    // ios_base::sync_with_stdio(false);
+    // cin.tie(NULL);
+  // int a =3;
+  // cout<<__builtin_popcount(a);
+  // cout<<sum(1,10000);
+  vector<int> v{1,23,4};
+  v.insert(v.end(),166);
+  cout<<v[0]<<" "<<v[1]<<" "<<v[2]<<" "<<v[3];
     
-   
- 
-      
 	return 0;
 }
