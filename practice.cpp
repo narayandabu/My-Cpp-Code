@@ -350,35 +350,10 @@ int sum(int a ,int b){
   return sum(a+=1,b-=1);
 }
 
-vector<int> separateDigits(vector<int>& nums) {
-      vector<int> ans;
-      ans[0]=0;
-      int size=nums.size(),temp{0},modulo{0};
-      for (int i = 0; i < size; i++){
-        temp=nums[i];
-        while(temp!=0){
-          modulo=temp%10;
-          ans.insert(ans.end()-1,modulo);
-          temp/=10;
-        }
-
-      }
-      return ans;
-
-
-        
-    }
 
 
 int main(){
-    // ios_base::sync_with_stdio(false);
-    // cin.tie(NULL);
-  // int a =3;
-  // cout<<__builtin_popcount(a);
-  // cout<<sum(1,10000);
-  vector<int> v{1,23,4};
-  v.insert(v.end(),166);
-  cout<<v[0]<<" "<<v[1]<<" "<<v[2]<<" "<<v[3];
-    
+
+    cout<<4%7<<" "<<3%2;
 	return 0;
 }
