@@ -22,3 +22,4 @@ vector<int> separateDigits(vector<int>& nums) {
     }
     return ans;  
 }
+//https://leetcode.com/problems/separate-the-digits-in-an-array/

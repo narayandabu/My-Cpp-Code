@@ -341,8 +341,6 @@ vector<int> getConcatenation(vector<int>& nums) {
 
 }
 
-
-
 int sum(int a ,int b){
   if(b==0){
   return a;
@@ -354,6 +352,6 @@ int sum(int a ,int b){
 
 int main(){
 
-    cout<<4%7<<" "<<3%2;
+  cout<<'A'-'a'<<el;
 	return 0;
 }
