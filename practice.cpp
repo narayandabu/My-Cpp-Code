@@ -41,41 +41,40 @@ long long int binary_exp_i(int a,int b){ // Iterative approach
 
 
 
-
-int alpha[26];
-int main(){
-      map<char,int> mp;
-      mp['e'];
-      mp['f'];
-      mp['g'];
-      mp['h'];
-      mp['i'];
-      mp['n'];
-      mp['o'];
-      mp['r'];
-      mp['s'];
-      mp['t'];
-      mp['u'];
-      mp['v'];
-      mp['w'];
-      mp['x'];
-      mp['z'];
-      string s;
-      cin>>s;
-      for (int i = 0; i < s.size(); i++){
-        mp[s.at(i)]++;
+// int majorityElement(vector<int>& nums) {
+//     int major{INT_MIN},size=nums.size(),count{0};
+//     for (int i = 0; i < size; i++){
+//       if(major!=nums[i] and count==0){
+//         major=nums[i];
+//         count++;
+//       }
+//       else if (major==nums[i]) count++;
+//       else count--;
+//     }
+//     return major;
+// }
+int majorityElement(vector<int>& nums) {
+      map<int,int> fqtable;
+      int size=nums.size(),counter{0},majority{0};
+      for (int i = 0; i < size; i++){
+        if(fqtable.find(nums[i])==fqtable.end()){
+          fqtable.insert(nums[i],0);
+        }
+        else fqtable[nums[i]]++;
       }
-
-      
-
-
-
-
-
+      for (auto it : fqtable){
+        if((it.second)>counter)majority=it.first;
+      }
+      return majority;
+}
 
 
 
 
+int main(){
 
-	return 0;
+    vector<int> v{1,3,3,3,2};
+    cout<<majorityElement(v);
+    
+	 return 0;
 }
