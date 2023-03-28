@@ -27,7 +27,7 @@ long long int binary_exp_r(int a , int b){  //Recursive Approach
 
 }
 long long int binary_exp_i(int a,int b){ // Iterative approach
-        // Time Complexity Log(N);
+      // Time Complexity Log(N);
       int ans{1};
       while(b){
         if (b&1){
@@ -39,42 +39,31 @@ long long int binary_exp_i(int a,int b){ // Iterative approach
       return ans;
 }
 
-
-
-// int majorityElement(vector<int>& nums) {
-//     int major{INT_MIN},size=nums.size(),count{0};
-//     for (int i = 0; i < size; i++){
-//       if(major!=nums[i] and count==0){
-//         major=nums[i];
-//         count++;
-//       }
-//       else if (major==nums[i]) count++;
-//       else count--;
-//     }
-//     return major;
-// }
-int majorityElement(vector<int>& nums) {
-      map<int,int> fqtable;
-      int size=nums.size(),counter{0},majority{0};
-      for (int i = 0; i < size; i++){
-        if(fqtable.find(nums[i])==fqtable.end()){
-          fqtable.insert(nums[i],0);
+int search(vector<int>& nums, int target) {
+        int high{0},low{0},mid{0},size=nums.size();
+        high=size;
+        while(high>low)
+        {
+          mid=(high+low)/2;
+          if(nums[mid]>target )high=mid;
+          else if(nums[mid]<target )low=mid+1;
+          else return mid;
         }
-        else fqtable[nums[i]]++;
-      }
-      for (auto it : fqtable){
-        if((it.second)>counter)majority=it.first;
-      }
-      return majority;
-}
+        return -1;
+    }
+
+
+
+
+
 
 
 
 
 int main(){
+      vector<int> v{-1,0,3,5,9,12};
+      cout<<search(v,12);
 
-    vector<int> v{1,3,3,3,2};
-    cout<<majorityElement(v);
     
 	 return 0;
 }
