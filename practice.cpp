@@ -51,7 +51,16 @@ int search(vector<int>& nums, int target) {
         }
         return -1;
     }
-
+int searchInsert(vector<int>& nums, int target) {
+        int high{0},low{0},mid{0},size=nums.size();
+        high=size;
+        while(high>low){
+          mid=(high+low)/2;
+          if(nums[mid]>target )high=mid;
+          else low=mid+1;
+        }
+        return mid;
+  }
 
 
 
