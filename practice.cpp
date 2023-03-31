@@ -60,19 +60,74 @@ int searchInsert(vector<int>& nums, int target) {
           else low=mid+1;
         }
         return mid;
-  }
+}
 
+vector<int> sortedSquares(vector<int>& nums) {
+      int size=nums.size(),l{0};
+      int r=size-1;
+      vector<int> ans(nums.size());
+      for (int i = size-1; i >=0; i--){
+        if(abs(nums[r])>abs(nums[l])){
+          ans[i]=nums[r]*nums[r];
+          r--;
+        }
+        else{
+          ans[i]=nums[l]*nums[l];
+          l++;
+        }
+      }
+      return ans;
+}
+bool canConstruct(string ransomNote, string magazine) {
+     unordered_map<char,int> m;
+     for (int i = 0; i < ransomNote.size(); i++){
+      m[ransomNote.at(i)]++;
+     }
+     for (int i = 0; i < magazine.size(); i++){
+      if(m.find(magazine.at(i))!=m.end())m[magazine.at(i)]--;
+     }
+     for(auto it:m)if(it.second>0)return false;
+     return true;
 
+}
 
-
-
-
-
-
+void rotate(vector<int>& nums, int k) {
+      reverse(nums.begin(),nums.end());
+      reverse(nums.begin(), nums.begin()+k);
+      reverse(nums.begin()+k, nums.end());
+    }
+void printvector(vector<int>  v){
+      for (int i = 0; i < v.size(); i++)
+      {
+        cout<<v[i]<<" ";
+      }
+      cout<<el;
+      return ;
+}
+string decodeMessage(string key, string message) {
+    unordered_map<char,char> m;
+    char letter='a';
+    string ans;
+    for (int i = 0; i < key.size(); i++){
+      if(key.at(i)!=' ' and m.find(key.at(i))==m.end()){
+        m[key.at(i)]=letter;
+        letter++;
+      }
+    }
+    for (int i = 0; i < message.size(); i++){
+      if(message.at(i)!=' '){
+       auto it =m.find(message.at(i));
+       ans.push_back((*it).second);
+      }
+      else ans.push_back(' ');
+    }
+    return ans;
+    }
 int main(){
-      vector<int> v{-1,0,3,5,9,12};
-      cout<<search(v,12);
-
-    
+    string key="the quick brown fox jumps over the lazy dog";
+    string mesg="vkbs bs t suepuv";
+    cout<<decodeMessage(key,mesg)<<el;
+    // string h="hellow world";
+    // cout<<h[6];
 	 return 0;
 }
