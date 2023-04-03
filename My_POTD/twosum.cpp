@@ -3,19 +3,14 @@
 using namespace std;
 
 vector<int> twoSum(vector<int>& nums, int target) {
-        map<int,int> mp;
-        vector<int> arr;
-        for (int i = 0; i < nums.size(); i++){
-          auto it=mp.find(target-nums[i]);
-          if (it!=mp.end()){
-            arr.push_back(i);
-            arr.push_back(mp[target-nums[i]]);
-            return arr;
-          }
-          else mp[nums[i]]=i;  
-        }
-        return arr;
-        
+   unordered_map<int,int> mp;
+    for (int i = 0; i < nums.size(); i++){
+      auto it=mp.find(target-nums[i]);
+      int other=target-nums[i];
+      if (it!=mp.end()) return{mp[other],i};
+      else mp[nums[i]]=i;  
+    }
+    return { };
 }
 
 //https://leetcode.com/problems/two-sum/
