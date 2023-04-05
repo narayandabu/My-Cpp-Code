@@ -2,19 +2,30 @@
 using namespace std;
 #define el endl
  
-
-int main(){
+ 
+main(){
       ios_base::sync_with_stdio(false);
       cin.tie(NULL);
-      long long num{0},ct4{0},ct7{0};
-      cin>>num;
-      while(num!=0){
-            if(num%10==7)ct7++;
-            else if(num%10==4)ct4++;
-            num/=10;
+      int a{0},t{0};
+
+      string s;
+      cin>>a>>t;
+      cin>>s;
+    while(t--){  
+      vector<int> v;
+      for (int i = 0; i < s.size()-1; i++){
+            if(s[i]=='B' and s[i+1]=='G'){
+                  v.push_back(i);
+            }
       }
-      if(((ct7+ct4)==7) or ((ct7+ct4)==4)) cout<<"YES\n";
-      else cout<<"NO\n";
-      return 0;
+      for(auto it:v)swap(s[it],s[it+1]);
+            
+            
+      
+    }
+    cout<<s;
+    
+    
+      
 }
 
