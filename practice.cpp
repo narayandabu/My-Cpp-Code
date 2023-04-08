@@ -55,7 +55,6 @@ int beautifulDays(int i, int j, int k) {
         }
       }
       return ct;
-      
 }
 const int a=1e5; 
 int arrf[a];
