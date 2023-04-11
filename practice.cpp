@@ -1,18 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define el endl
- 
+#define el '\n'
+#include "Algorithms/SeiveAlgo.cpp"
+
 int divisibleSumPairs(int n, int k, vector<int> ar) {
-      // map<int,int> m;
       int ct{0};
-      // for (int i = 0; i < n; i++){
-      //   m[ar[i]]++;
-      // }
-      // for (int i = 0; i < n; i++){
-      //   int tosearch=5-ar[i]%k;
-      //   if(m.find(tosearch)!=m.end())ct+=(*m.find(tosearch)).second;
-      // }
-      // return (ct);
       for (int i = 0; i < n; i++){
         for (int j = 0; j < n; j++){
           if(((ar[i]+ar[j])%k)==0 and i!=j)ct++;
@@ -22,7 +14,6 @@ int divisibleSumPairs(int n, int k, vector<int> ar) {
 }
 int arrh[6];
 int migratoryBirds(vector<int> arr) {
-
     int maxh{0},ans{0};
     for (int i = 0; i < arr.size(); i++){
       arrh[arr[i]]++;
@@ -35,8 +26,6 @@ int migratoryBirds(vector<int> arr) {
       arrh[i]=0;
     }
     return ans;
-    
-
 }
 int reversenum(int n){
     int  reversed_number = 0, remainder;
@@ -103,14 +92,14 @@ string gameOfThrones(string s) {
         return "YES";
       }
 }
-
-
-
 int main(){
       ios_base::sync_with_stdio(false);
       cin.tie(NULL);
-      int t=0;
-      vector<int> v{1 ,3, 2 ,6,1,2};
-      cout<<divisibleSumPairs(6,3,v);
+      __prime();
+      vector<int> primes;
+      primes=primenos(2,100);
+      for (int i = 0; i < primes.size(); i++){
+        cout<<primes.at(i)<<el;
+      }
       return 0;
 }
