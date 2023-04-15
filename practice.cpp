@@ -92,56 +92,29 @@ string gameOfThrones(string s) {
         return "YES";
       }
 }
-int maximumCount(vector<int>& nums) {
-
-    int mid{0},high=nums.size()-1,low{0};
-    if(nums[0]>0)return nums.size()-1;
-    while(high>low){
-      mid=(high+low)/2;
-      if(nums[mid]>0){
-        high=mid;
-      }
-      else low=mid+1;
+queue<int> reverseQueue(queue<int> q)
+{
+    int temp{0};
+    for (int i = 0; i < q.size(); i++){
+     temp = q.front();
+     q.push(temp);
+     q.pop();
     }
-    int pos=nums.size()-high;
-    mid=0;
-    high=nums.size()-1;
-    low=0;
-    while(high>low){
-      mid=(high+low)/2;
-      if(nums[mid]<=0){
-        low=mid+1;
-      }
-      else high=mid;
-    }
-    int neg=high+1;
-    if(nums[pos-1]==0 and nums[neg+1]==0)return 0;
-    return max(neg,pos);
-  }
-
-int countNegatives(vector<vector<int>>& grid) {
-
-    int negct{0},high{0},low{0},mid{0};
-    for (int i = 0; i < grid.size(); i++){
-      high=grid[i].size()-1;
-      low=0;
-      mid=0;
-     while(high>low){
-       mid=(high+low)/2;
-      if(grid[i][mid]<=0){
-        low=mid+1;
-      } 
-      else high=mid;
-    }
-    int neg=high+1;
+    return q;
     
-    return neg;
+}
+void printvec(vector<int> v){
+    for (int i = 0; i < v.size();i++)
+    {
+      cout<<v[i]<<" ";
     }
+    cout<<"\n"; 
+    
+}
+
 
 int main(){
-      ios_base::sync_with_stdio(false);
-      cin.tie(NULL);
-      vector<int> v{-2,-1,-2,-9,0};
-      cout<<maximumCount(v);
+      
+  
      return 0;
 }
