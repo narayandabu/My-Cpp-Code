@@ -12,7 +12,9 @@ int divisibleSumPairs(int n, int k, vector<int> ar) {
       }
       return ct/2;
 }
+
 int arrh[6];
+
 int migratoryBirds(vector<int> arr) {
     int maxh{0},ans{0};
     for (int i = 0; i < arr.size(); i++){
@@ -27,6 +29,7 @@ int migratoryBirds(vector<int> arr) {
     }
     return ans;
 }
+
 int reversenum(int n){
     int  reversed_number = 0, remainder;
   while(n != 0) {

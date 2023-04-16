@@ -4,9 +4,11 @@ using namespace std;
 # define hi cout<<"hi\n";
 
 
+
+
 int main(){
      
-      
+      vector<int> v{1,0,3};
       return 0;
 }
 
