@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define el '\n'
-#include "Algorithms/SeiveAlgo.cpp"
+#define nl "\n"
 
 int divisibleSumPairs(int n, int k, vector<int> ar) {
       int ct{0};
@@ -117,7 +117,21 @@ void printvec(vector<int> v){
 
 
 int main(){
-      
-  
+      int t;
+      cin>>t;
+    while(t--){
+      int n,temp,mink{INT_MAX};
+      cin>>n;
+      vector<int> v;
+      vector<int> hash;
+      for(int i = 0; i < n; i++){
+        cin>>temp;
+        v.push_back(temp);
+      }
+      for(int i=0;i<n-1;i++){
+        mink=min(mink,abs(v[i]-v[i+1]));
+      }
+      cout<<mink<<nl;
+    }
      return 0;
 }
