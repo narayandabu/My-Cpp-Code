@@ -115,23 +115,68 @@ void printvec(vector<int> v){
     
 }
 
+int findNumbers(vector<int>& nums) {
+
+  int temp{0},rem{0},ct{0},ans{0};
+  for(int i:nums){
+    temp=i;
+    ct=0;
+    while(temp/=10){
+      ct++;
+    }
+    if(ct%2==0)ans++;
+  }
+  return ans;
+
+}
+
+
+
+
 
 int main(){
       int t;
       cin>>t;
-    while(t--){
-      int n,temp,mink{INT_MAX};
-      cin>>n;
-      vector<int> v;
-      vector<int> hash;
-      for(int i = 0; i < n; i++){
-        cin>>temp;
-        v.push_back(temp);
+    while(t-- ){
+      vector<int> x;
+      vector<int> y;
+      bool flag=true;
+      for (int i = 0; i < 4; i++){
+        int x1{0};
+        cin>>x1;
+        x.push_back(x1);
       }
-      for(int i=0;i<n-1;i++){
-        mink=min(mink,abs(v[i]-v[i+1]));
+      for (int i = 0; i < 4; i++){
+        int y1{0};
+        cin>>y1;
+        y.push_back(y1);
       }
-      cout<<mink<<nl;
+      for (int i=0;i<4;i++){
+        for(int j=0;j<4;j++){
+        if(x[i]==x[j] and y[i]==y[j] and i!=j){
+          cout<<"NO\n";
+          flag=false;
+        }   
+        }
+        if(flag==false)break;
+      }
+      if(flag==false)continue;
+      int ab,bc,cd,da;
+      ab=abs((x[0]-x[1])*(x[0]-x[1])+(y[0]-y[1])*(y[0]-y[1]));
+      bc=abs((x[2]-x[1])*(x[2]-x[1])+(y[2]-y[1])*(y[2]-y[1]));
+      cd=abs((x[2]-x[3])*(x[2]-x[3])+(y[2]-y[3])*(y[2]-y[3]));
+      da=abs((x[3]-x[0])*(x[3]-x[0])+(y[3]-y[0])*(y[3]-y[0]));
+      if(ab==0 or bc==0 or cd==0 or da==0){
+        cout<<"NO\n";
+      }
+      else if(ab==bc and bc==cd and cd==da){
+        cout<<"Yes\n";
+
+      }
+      else{
+       cout<<"No\n";    
+      }
+    
     }
      return 0;
 }
