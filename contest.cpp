@@ -1,26 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define el endl
 #define d cout<<"debug\n";
 #define nl "\n"
-
- 
-int maximumValue(vector<string>& strs) {
-      int value{0};
-      for (string i: strs){
-            bool flag=false;
-            int size=i.size();
-            for(char c:i){
-                  if(isalpha(c)){
-                        flag=true;
-                        break;
-                  }
-            }
-            if(flag)value=max(value,size);
-            else value=max(value,stoi(i));    
-      }
-      return value;
-    }
+#define forn for(int i=0;i<n;i++)
+#define forv for(int i=0;i<v.size();i++)
+#define sortv sort(v.begin(),v.end())
+#define vecv vector<int> v
+#define ll long long
+#define lld unsigned long long
 
 
 
@@ -28,11 +15,32 @@ int main(){
       ios_base::sync_with_stdio(false);
       cin.tie(NULL);
       int t=0;
-      // cin>>t;
+      cin>>t;
       while(t--){
-           
+            int n,t,maxent{-1},indx{-1};
+            cin>>n>>t;
+            vector<int> dur;
+            vector<int> ent;
+            for (int i = 0; i < n; i++){
+                  int durr;
+                  cin>>durr;
+                  dur.push_back(durr);
+            }
+            for (int i = 0; i < n; i++){
+                  int et;
+                  cin>>et;
+                  ent.push_back(et);
+            }
+            for (int i = 0; i < n; i++){
+                  if(dur[i]<=t and ent[i]>maxent){
+                        maxent=ent[i];
+                        indx=i+1;
+                  }
+                  t--;
+            }
+            cout<<indx<<"\n"; 
       }
-      cout<<'9'-'0';
+      
       return 0;
 }
 

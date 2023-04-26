@@ -135,48 +135,8 @@ int findNumbers(vector<int>& nums) {
 
 
 int main(){
-      int t;
-      cin>>t;
-    while(t-- ){
-      vector<int> x;
-      vector<int> y;
-      bool flag=true;
-      for (int i = 0; i < 4; i++){
-        int x1{0};
-        cin>>x1;
-        x.push_back(x1);
-      }
-      for (int i = 0; i < 4; i++){
-        int y1{0};
-        cin>>y1;
-        y.push_back(y1);
-      }
-      for (int i=0;i<4;i++){
-        for(int j=0;j<4;j++){
-        if(x[i]==x[j] and y[i]==y[j] and i!=j){
-          cout<<"NO\n";
-          flag=false;
-        }   
-        }
-        if(flag==false)break;
-      }
-      if(flag==false)continue;
-      int ab,bc,cd,da;
-      ab=abs((x[0]-x[1])*(x[0]-x[1])+(y[0]-y[1])*(y[0]-y[1]));
-      bc=abs((x[2]-x[1])*(x[2]-x[1])+(y[2]-y[1])*(y[2]-y[1]));
-      cd=abs((x[2]-x[3])*(x[2]-x[3])+(y[2]-y[3])*(y[2]-y[3]));
-      da=abs((x[3]-x[0])*(x[3]-x[0])+(y[3]-y[0])*(y[3]-y[0]));
-      if(ab==0 or bc==0 or cd==0 or da==0){
-        cout<<"NO\n";
-      }
-      else if(ab==bc and bc==cd and cd==da){
-        cout<<"Yes\n";
-
-      }
-      else{
-       cout<<"No\n";    
-      }
     
-    }
+    
+    cout<<'z'-'0';
      return 0;
 }
