@@ -4,7 +4,6 @@ using namespace std;
     
     
 int countDigits(int num) {
-
     int temp=num,rem{0},ct{0};
     while(temp){
         rem=temp%10;

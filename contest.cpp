@@ -11,28 +11,66 @@ using namespace std;
 #define ll long long
 #define lld unsigned long long
 
+vector<string> sv;
+void generate(string &s, int open,int close){
+      if(open==0 and close ==0){
+            sv.push_back(s);
+            return;
+      }
+      if(open>0){
+            s.push_back('(');
+            generate(s,open-1,close);
+            s.pop_back();
+      }
+      if(close>0){
+            if(open<close){
+                  s.push_back(')');
+                  generate(s,open,close-1);
+                  s.pop_back();
+            }
+      }
+}
+
+vector<vector<int>> ve;
+
+void gss(vector<int> &t,vector<int> &nums,int i){
+      if(i==nums.size()){
+            ve.push_back(t);
+            return;
+      }
+      gss(t,nums,i+1);
+      t.push_back(nums.at(i));
+      gss(t,nums,i+1);
+      t.pop_back();
+}
+vector<int> inverse(vector<int> in){
+      vector<int> ans;
+      for (int i:in)
+      {
+            if(i==1)ans.push_back(0);
+            else ans.push_back(1);
+      }
+      return ans;
+}
+
+// vector<int> subset(int n,vector<int> &v,bool k){
+//       if(n==1){
+//             return {0};
+//       }
+// }
+int c(int * a){
+      *a=3;
+      return 2;
+}
+
+
 int main(){
       ios_base::sync_with_stdio(false);
       cin.tie(NULL);
-      int t{0};
-      cin>>t;
-   while(t--){
-      int n,temp,rem,size{0},ct{0};
-      cin>>n;
-      temp=n;
-      while(temp!=0){
-           if(temp%10!=0)ct++;
-           size++;
-           temp/=10;
-      }
-      cout<<ct<<nl;
-      for(int i=0;i<size;i++){
+      cout<<(char)('z'-32);      
 
-            rem=n%10;
-            if(rem!=0)cout<<rem*pow(10,i)<<" ";
-            n/=10;
-      }
-      cout<<nl;
-    }
+      
+      
+      
       return 0;
 }
