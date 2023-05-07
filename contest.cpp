@@ -10,6 +10,8 @@ using namespace std;
 #define vecv vector<int> v
 #define ll long long
 #define lld unsigned long long
+#define fora(i,n,k) for(int i=k;i<n;i++)
+
 
 vector<string> sv;
 void generate(string &s, int open,int close){
@@ -45,32 +47,24 @@ void gss(vector<int> &t,vector<int> &nums,int i){
 }
 vector<int> inverse(vector<int> in){
       vector<int> ans;
-      for (int i:in)
-      {
-            if(i==1)ans.push_back(0);
-            else ans.push_back(1);
-      }
+      
       return ans;
 }
 
-// vector<int> subset(int n,vector<int> &v,bool k){
-//       if(n==1){
-//             return {0};
-//       }
-// }
-int c(int * a){
-      *a=3;
-      return 2;
-}
+
 
 
 int main(){
       ios_base::sync_with_stdio(false);
       cin.tie(NULL);
-      cout<<(char)('z'-32);      
+      int t;
+      cin>>t;
+      while(t--){
+            int n,i{0};
+            cin>>n;
 
-      
-      
-      
+
+
+      }
       return 0;
 }
