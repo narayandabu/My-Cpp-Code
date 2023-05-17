@@ -11,32 +11,53 @@ using namespace std;
 #define fora(i,n,k) for(int i=k;i<n;i++)
  
  
-int solve(int n,int k){
-      if(n==0)return 0;
-      if(n==k or n*2==k)return 1;
-      return solve(n/3,k) or solve((n/3)*2,k);
+set<int> visted;
+void dfs(vector<int> graph[],int nodes,int vertex){
+
+      
+
+
+
+}
+
+void printgraph(vector<int> grp[],int size){
+      for (int j = 0; j < size+1; j++){
+      for (int i = 0; i < grp->size()+1; i++){
+            // cout<<"hi";
+                  cout<<grp[i][j]<<" ";
+            }
+            cout<<nl;
+      }
+      return ;
+      
+
 }
 
 int main(){
-      ios_base::sync_with_stdio(false);
-      cin.tie(NULL);
-      int t=0;
-      cin>>t;
-      while(t--){
-            int n,k;
-            bool flag=true;
-            cin>>n>>k;
-            if((n==1 and k==1))cout<<"YES\n";
-            else if(k>n)cout<<"NO\n";
-            else{
-                  if(n%3==0){
-                    if(solve(n,k)==1){
-                        cout<<"YES\n";
-                        flag=false;
-                    }
-                  }
-                  if(flag)cout<<"NO\n";
-            }
+      // ios_base::sync_with_stdio(false);
+      // cin.tie(NULL);
+      int n/*vertices*/,m/*edges*/;
+      cin>>n;
+      int node,numofspreads;
+      vector<int> grp[n+1];
+      // grp[0].push_back(0);
+      for (int i = 0; i < n; i++){
+         cin>>node>>numofspreads;
+         for (int j = 0; j < numofspreads; j++){
+            int temp;
+            cin>>temp;         
+            grp[node].push_back(temp);
+         }
       }
+      for (int j = 1; j < n+1; j++){
+            cout<<j;
+      for (auto i:grp[j]){
+                  cout<<"->"<<i;
+            }
+            cout<<nl;
+      }
+      
+      
+
       return 0;
 }
