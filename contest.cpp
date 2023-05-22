@@ -12,27 +12,43 @@ using namespace std;
  
  
  
+ 
+ 
+void solve(){
+          
+      int n;
+      cin>>n;
+      int arr[n];
+      for (int i = 0; i < n; i++){
+            cin>>arr[i];  
+      }
+      for (int i = 0; i < n; i++){
+            for (int j = 0; j < n; j++){
+                for(int k=0;k<n;k++){
+                if(2*arr[i]==arr[j]+arr[k] and i!=j and j!=k and i!=k){
+                  cout<<"No\n";
+                  return;
+                }   
+                }
+            }
+            
+      }
+      cout<<"Yes\n";
+      
+ 
+ 
+  return;
+}
+ 
 int main(){
       ios_base::sync_with_stdio(false);
       cin.tie(NULL);
       int t=0;
       cin>>t;
       while(t--){
-            bool pos=true,neg=true;
-            int n;
-            cin>>n;
-            vecv;
-            forn{
-                  int temp;
-                  cin>>temp;
-                  v.push_back(temp*pow(2,i));
-                  if(temp>0)neg=false;
-                  if(temp<0)pos=false;
-            }
-            sort(v.begin(),v.end());
-            if(n==1)cout<<1<<nl;
-            else if(pos or neg)cout<<n*(n+1)/2<<nl;
-            else cout<<abs(v[n-1]+v[0])<<nl;
+         solve();
+ 
+ 
       }
       return 0;
 }
