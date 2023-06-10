@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define d cout<<"d\n";
+
+//Two-pointer
 //https://leetcode.com/problems/merge-sorted-array/description/
 
 void merge(vector<int>& nums1, int m, vector<int>& nums2, int n){

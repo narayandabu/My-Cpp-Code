@@ -9,7 +9,8 @@ using namespace std;
 #define ll long long
 #define lld unsigned long long
 #define fora(i,n,k) for(int i=k;i<n;i++)
- 
+
+//implementation,arrays.
 //https://codeforces.com/contest/330/problem/A
  
  

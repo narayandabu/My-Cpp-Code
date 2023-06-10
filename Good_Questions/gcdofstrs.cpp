@@ -1,5 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
+
+//implementation,strings,numbtheory.
 //https://leetcode.com/problems/greatest-common-divisor-of-strings/submissions/
 
 string gcdOfStrings(string str1, string str2){

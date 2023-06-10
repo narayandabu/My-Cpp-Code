@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
+//implementation,arrays,numbertheory.
 vector<vector<int>> pascals_trinagle_of(int numRows) {
 
     if(numRows==1)return {{1}};

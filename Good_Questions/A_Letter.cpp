@@ -10,6 +10,7 @@ using namespace std;
 #define lld unsigned long long
 #define fora(i,n,k) for(int i=k;i<n;i++)
  
+//implementation,maths.
 //https://codeforces.com/contest/14/problem/A
  
 int main(){

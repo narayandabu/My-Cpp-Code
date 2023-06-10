@@ -1,0 +1,1 @@
+{"name":"Local: a","url":"c:\\Users\\naray\\OneDrive\\Desktop\\C programing\\My_Cpp_Programs\\a.cpp","tests":[{"id":1685712591403,"input":"3\n1\n3\n8","output":"1\n10\n120"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\naray\\OneDrive\\Desktop\\C programing\\My_Cpp_Programs\\a.cpp","group":"local","local":true}

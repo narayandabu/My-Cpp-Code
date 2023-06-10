@@ -2,7 +2,6 @@
 using namespace std;
 
 vector<vector<int>> mergeSimilarItems(vector<vector<int>>& items1, vector<vector<int>>& items2) {
-        
     map<int,int> m;
     vector<vector<int>> ans;
     if(items2.size()>=items1.size()){
@@ -34,7 +33,4 @@ vector<vector<int>> mergeSimilarItems(vector<vector<int>>& items1, vector<vector
         for(auto it:m)ans.push_back({it.first,it.second});
     }
     return ans;
-
-    
-    
     }

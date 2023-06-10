@@ -10,7 +10,7 @@ using namespace std;
 #define lld unsigned long long
 #define fora(i,n,k) for(int i=k;i<n;i++)
  
- 
+//maths.
 //https://www.codechef.com/problems/APP_BAL_SCA
  
 bool is_poss(lld n,lld q){
