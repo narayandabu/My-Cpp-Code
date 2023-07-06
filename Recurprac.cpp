@@ -27,33 +27,53 @@ int kthGrammar(int n, int k) {
 }
 //2>  https://leetcode.com/problems/subsets/
 vector<vector<int>> ver;
-void generatesub(vector<int>& nums,int i,vector<int> &vr){
-    if(i==nums.size()-1)return ;
-    
+void generatesub(vector<int>& nums,int i,vector<int> &empty){
+    if(i==nums.size()){
+        ver.push_back(empty);
+        return ;
+    }
+    generatesub(nums,i+1,empty);
+    empty.push_back(nums[i]);
+    generatesub(nums,i+1,empty);
+    empty.pop_back();
 }
 void vecofvecpr(vector<vector<int>> v){
     for(vector<int> i:v){
-        cout<<"[";
-        for(int j:i)cout<<j<<",";
+        cout<<" [ ";
+        for(int j:i)cout<<j<<" ";
         cout<<"] ";
     }
     return;
 }
 
 
-// vector<vector<int>> subsets(vector<int>& nums) {
-    
-
+// vector<vector<int>> subsets(vector<int>& nums) { 
 // }
-
-
+int fibbo(int n){
+    if(n<=1)return 1;
+    else{
+        int nth;
+        for(int i=0;i<n;i++){
+            nth = fibbo(i-1);
+            
+        }
+        cout<<nth<<" ";
+    }
+}
 
 
 
 int main()
 {
-    vector<int> v{1,2,3},g;
-    generatesub(v,0,g);
-    vecofvecpr(ver);
+//     vector<int> v{1,2,3},g;
+//     generatesub(v,0,g);
+//     vecofvecpr(ver);
+        int n;
+        cin>>n;
+        // for(int i=0;i<n;i++)cout<<fibbo(i)<<" ";
+        fibbo(n);
     return 0;
 }
+
+
+

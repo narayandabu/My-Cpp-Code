@@ -16,9 +16,13 @@ void dfs(int v,int root,int prev,unordered_map<int,bool> &vis,vector<unordered_s
       }
     }
   }
-
-
 }
+
+
+
+
+
+
 
 
 
@@ -48,6 +52,7 @@ int main(){
   for(int i=1;i<=n;i++)dfs(i,i,i,visited,grp);
   if(is_cyclic)cout<<"YES\n";
   else cout<<"NO\n";
+
 
 
 

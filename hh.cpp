@@ -24,28 +24,28 @@ void solve(){
  
   return;
 }
-// long long contributions(int n,vector<int> a){
-//     long long sum{0};
-//     unordered_map<int,vector<int>> mods;
-//     for(int i=0;i<n;i++){
-//         if(mods.find(a[i]%3)!=mods.end()){
-//             int l=mods[a[i]%3].size();
-//             for(int k=0;k<l;k++){
-//             mods[a[i]%3].push_back(a[i]^mods[a[i]%3][k]);
-//             }
-//         }
-//         else mods[a[i]%3].push_back(a[i]);
-//     }
-//     for(auto it:mods){
-//         if(it.second.size()>1){
-//             for(int i:it.second){
-//                 sum+=i;
-//             }
-//         }
-//     }
-//     return sum;
+long long contributions(int n,vector<int> a){
+    long long sum{0};
+    unordered_map<int,vector<int>> mods;
+    for(int i=0;i<n;i++){
+        if(mods.find(a[i]%3)!=mods.end()){
+            int l=mods[a[i]%3].size();
+            for(int k=0;k<l;k++){
+            mods[a[i]%3].push_back(a[i]^mods[a[i]%3][k]);
+            }
+        }
+        else mods[a[i]%3].push_back(a[i]);
+    }
+    for(auto it:mods){
+        if(it.second.size()>1){
+            for(int i:it.second){
+                sum+=i;
+            }
+        }
+    }
+    return sum;
 
-// }
+}
 long long contributions(int n, vector<int> &a) {
  long long sum{0};
     unordered_map<int,vector<int>> mods;
